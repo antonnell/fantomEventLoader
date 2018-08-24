@@ -33,7 +33,7 @@ function getEvent(event) {
 }
 
 function insertConsensusEventData(event, eventData) {
-  db.none('insert into consensus_events_data (hash, payload, index, event_time) values ($1, $2);', [
+  db.none('insert into consensus_events_data (hash, payload, index, event_time) values ($1, $2, $3, $4);', [
     event, eventData, eventData.Body.Index, eventData.Body.Timestamp
   ])
   .then(() => {
